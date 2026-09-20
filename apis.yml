@@ -1,18 +1,59 @@
 aid: genie-us-software-com
 name: Genie-us Software, Inc.
-description: 'Genie-us Software, Inc. is a company surfaced via the API Evangelist harvest backlog (source:
-  a2a-registry) and added to the network as a stub for full-pipeline profiling.'
+description: 'Genie-us Software, Inc. sells CoreOS v1.0, a governance-first set of custom skills, operating
+  instructions and boundaries installed into the AI environment a person already uses (ChatGPT as a Markdown
+  install package, Claude Code as a skills ZIP) — no hosted runtime, one $499 one-time license per person,
+  with DiscoveryPass as the free seven-day evaluation. Rather than an API, the company publishes a small
+  machine-readable commercial discovery surface for agents: an A2A agent card at /.well-known/agent-card.json
+  (discovery-only — no A2A endpoint is deployed), a commerce manifest, and static JSON documents for products,
+  capabilities, evidence, health and a JSON Schema qualification request.'
 url: https://raw.githubusercontent.com/api-evangelist/genie-us-software-com/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:a2a-registry
-x-tier: stub
+x-tier: profiled
 x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-19'
 modified: '2026-09-19'
 tags:
 - Company
-apis: []
+- AI Governance
+- AI Agents
+- Agent Skills
+- A2A
+- Machine Commerce
+- Software Licensing
+apis:
+- aid: genie-us-software-com:machine-commerce-discovery
+  name: Genie-us Software Machine Commerce Discovery
+  description: 'Six static, anonymous, read-only JSON documents the provider publishes for agents under
+    /machine/ and /.well-known/, mapped by its commerce manifest: products (SKU, price, delivery), capabilities
+    (with explicit agent boundaries), evidence (which public pages ground a claim), a JSON Schema draft 2020-12
+    qualification request, and a health document whose flags say dynamic qualification, agent checkout and
+    artifact fulfillment are not yet live. No OpenAPI, no authentication, no write operation.'
+  humanURL: https://www.genie-us-software.com/trust/
+  baseURL: https://www.genie-us-software.com/machine
+  tags:
+  - Machine Commerce
+  - AI Agents
+  - Products
+  - Pricing
+  x-evidence:
+    verified: '2026-09-19'
+    method: probed
+    documented_by: https://www.genie-us-software.com/.well-known/genie-commerce.json (machineSurfaces map names every path)
+    endpoints_called:
+    - {url: https://www.genie-us-software.com/machine/products.json, status: 200, content_type: application/json}
+    - {url: https://www.genie-us-software.com/machine/capabilities.json, status: 200, content_type: application/json}
+    - {url: https://www.genie-us-software.com/machine/evidence.json, status: 200, content_type: application/json}
+    - {url: https://www.genie-us-software.com/machine/qualification-schema.json, status: 200, content_type: application/json}
+    - {url: https://www.genie-us-software.com/machine/health.json, status: 200, content_type: application/json}
+    note: 'humanURL is the provider''s /trust/ page, which evidence.json names as the public trust surface; the provider publishes no API reference page and no OpenAPI, so none is claimed.'
+  properties:
+  - type: JSONSchema
+    url: json-schema/genie-us-software-com-qualification-schema.json
+  - type: Documentation
+    url: https://www.genie-us-software.com/.well-known/genie-commerce.json
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +61,55 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://genie-us-software.com/
+  url: https://www.genie-us-software.com/
+- type: About
+  url: https://www.genie-us-software.com/about/
+- type: HowItWorks
+  url: https://www.genie-us-software.com/how-it-works/
+- type: FAQ
+  url: https://www.genie-us-software.com/faq/
+- type: Trust
+  url: https://www.genie-us-software.com/trust/
+- type: Pricing
+  url: https://www.genie-us-software.com/coreos/
+- type: SignUp
+  url: https://www.genie-us-software.com/discoverypass/
+- type: Support
+  url: https://www.genie-us-software.com/support/
+- type: Contact
+  url: https://www.genie-us-software.com/contact/
+- type: TermsOfService
+  url: https://www.genie-us-software.com/terms/
+- type: PrivacyPolicy
+  url: https://www.genie-us-software.com/privacy/
+- type: AcceptableUse
+  url: https://www.genie-us-software.com/acceptable-use/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/genie-us-software-inc/
+- type: GitHubOrganization
+  url: https://github.com/genie-us-software
+- type: AgentCard
+  url: a2a/genie-us-software-com-a2a.yml
+- type: Plans
+  url: plans/genie-us-software-com-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/genie-us-software-com-rate-limits.yml
+- type: LLMsTxt
+  url: llms/genie-us-software-com-llms.txt
+- type: Conventions
+  url: conventions/genie-us-software-com-conventions.yml
+- type: Lifecycle
+  url: lifecycle/genie-us-software-com-lifecycle.yml
+- type: Conformance
+  url: conformance/genie-us-software-com-conformance.yml
+- type: RegulatoryPosture
+  url: regulatory/genie-us-software-com-regulatory-posture.yml
+- type: DataSubjectRequest
+  url: regulatory/genie-us-software-com-regulatory-posture.yml
+- type: DomainSecurity
+  url: security/genie-us-software-com-domain-security.yml
+x-enrichment:
+  date: '2026-09-19'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v3

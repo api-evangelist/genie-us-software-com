@@ -1,0 +1,46 @@
+generated: '2026-09-19'
+method: probed
+source: https://www.genie-us-software.com/.well-known/agent-card.json
+description: 'Standards the provider''s published machine surface actually declares or measurably meets, with
+  the exact location as evidence. The provider claims no certification or compliance program anywhere on its
+  site (SOC 2, ISO 27001, etc. are not mentioned), so no Compliance pointer is emitted. There is no OpenAPI,
+  GraphQL, MCP or OAuth surface, so oauth2/oidc/rfc9457/pagination/idempotency entries are not applicable rather
+  than false. Domain-standard signature: the market (AI-assistant skill packages) has no domain standard to
+  declare; reward-only, nothing invented.'
+conformance:
+- id: a2a-agent-card
+  standard: A2A 1.0.0 AgentCard
+  conforms: false
+  grade: flavored
+  evidence: https://www.genie-us-software.com/.well-known/agent-card.json
+  note: 'Served at the canonical RFC 8615 path and structurally close (capabilities is an object, skills is an array), but omits the required protocolVersion, skill tags[], and any A2A endpoint — the card url is the website and the card itself says autonomous A2A messaging is not asserted. Full grading in a2a/genie-us-software-com-a2a.yml.'
+- id: rfc8615-well-known
+  standard: RFC 8615 Well-Known URIs
+  conforms: true
+  evidence: https://www.genie-us-software.com/.well-known/agent-card.json
+  note: Two documents served under /.well-known/ (agent-card.json, genie-commerce.json); unknown paths return a real 404.
+- id: json-schema-2020-12
+  standard: JSON Schema draft 2020-12
+  conforms: true
+  evidence: https://www.genie-us-software.com/machine/qualification-schema.json
+  note: 'The qualification request schema declares "$schema": "https://json-schema.org/draft/2020-12/schema" and a resolvable "$id"; uses additionalProperties false, required[], const, enum, format email. Saved verbatim to json-schema/.'
+- id: rfc9727-api-catalog
+  standard: RFC 9727 api-catalog
+  conforms: false
+  evidence: https://www.genie-us-software.com/.well-known/api-catalog
+  note: 404 on both hosts.
+- id: rfc9116-security-txt
+  standard: RFC 9116 security.txt
+  conforms: false
+  evidence: https://www.genie-us-software.com/.well-known/security.txt
+  note: 404 on both hosts (also /security.txt 404).
+- id: rfc9728-protected-resource
+  standard: RFC 9728 OAuth protected resource metadata
+  conforms: false
+  evidence: https://www.genie-us-software.com/.well-known/oauth-protected-resource
+  note: 404; nothing is OAuth-protected on this surface.
+- id: mcp
+  standard: Model Context Protocol
+  conforms: false
+  evidence: https://www.genie-us-software.com/.well-known/mcp.json
+  note: No MCP server is published or named by the agent card; /.well-known/mcp.json 404. Not applicable rather than a failure.

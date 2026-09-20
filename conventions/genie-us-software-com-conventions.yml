@@ -1,0 +1,65 @@
+generated: '2026-09-19'
+method: probed
+source: https://www.genie-us-software.com/.well-known/genie-commerce.json
+docs:
+- https://www.genie-us-software.com/.well-known/agent-card.json
+- https://www.genie-us-software.com/.well-known/genie-commerce.json
+- https://www.genie-us-software.com/machine/health.json
+- https://www.genie-us-software.com/trust/
+base_url: https://www.genie-us-software.com/machine
+media_type: application/json; charset=utf-8
+surface_shape: 'Six static, anonymous, read-only JSON documents at fixed paths (GET only). The commerce manifest
+  maps them (machineSurfaces) and health.json declares which dynamic capabilities are NOT yet live:
+  dynamicQualification false, agentCheckout false, digitalArtifactFulfillment false. There is no request
+  parameterisation, no write operation, no session and no authentication. Everything below is therefore
+  recorded as na rather than zero: the dimensions do not apply to a surface with no write path.'
+auth:
+  style: none — every document is anonymous; agent card securitySchemes is {} and security[] is absent.
+  detail: null
+idempotency:
+  supported: na
+  coverage: na
+  mechanism: null
+  header: null
+  scope: []
+  retention: null
+  description: No write surface exists (read-only static documents), so idempotency does not apply.
+pagination:
+  style: none
+  description: Each document is a complete, unpaged JSON object.
+versioning:
+  style: in-document schemaVersion field
+  detail: 'agent card version 1.1.0; genie-commerce.json schemaVersion 1.2.0; products.json 1.3.0; capabilities.json 1.1.0; evidence.json 1.0.0; health.json 1.2.0. Paths carry no version segment. See lifecycle/.'
+errors:
+  envelope: none observed
+  description: Unknown paths return the site's HTML 404 page (text/html, 9,379 bytes), not a JSON error body; no application/problem+json surface exists.
+request_id:
+  header: null
+  description: No request-id or trace header is documented or observed.
+rate_limits:
+  signaling: none observed
+  detail: rate-limits/genie-us-software-com-rate-limits.yml
+dry_run_mode:
+  supported: na
+  status: na
+  description: No operation has a side effect to rehearse.
+reversibility:
+  grade: na
+  docs: https://www.genie-us-software.com/terms/
+  note: 'The machine surface has no write operation, so reversibility does not apply to it. The only
+    reversible act the provider sells is the human Stripe purchase of the CoreOS license (a one-time fee that
+    "does not auto-renew"); the Terms say refunds and cancellations are "governed by these Terms and
+    Conditions and applicable law" and state NO refund window, so even for that human checkout no window is
+    asserted here. Do not infer one.'
+  write_surfaces: []
+commercial_boundaries:
+  source: https://www.genie-us-software.com/machine/capabilities.json
+  note: 'The provider publishes explicit agent boundaries — mayInventProducts false, mayChangePrices false,
+    mayInventVolumeDiscounts false, mayClaimHostedRuntimeRequired false, mayExposeProtectedImplementationIP
+    false — and an unknownSkuPolicy of reject. These are instructions to a consuming agent, recorded here
+    verbatim because they are the closest thing the surface has to a usage convention.'
+cross_links:
+  lifecycle: lifecycle/genie-us-software-com-lifecycle.yml
+  rate_limits: rate-limits/genie-us-software-com-rate-limits.yml
+  conformance: conformance/genie-us-software-com-conformance.yml
+  a2a: a2a/genie-us-software-com-a2a.yml

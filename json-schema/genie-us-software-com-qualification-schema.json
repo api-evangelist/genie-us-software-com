@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.genie-us-software.com/machine/qualification-schema.json",
+  "title": "Genie-us Software Commercial Qualification Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["requestId", "buyer", "requestedPath", "consent"],
+  "properties": {
+    "requestId": {"type": "string", "minLength": 8},
+    "buyer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "email"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "email": {"type": "string", "format": "email"},
+        "organization": {"type": "string"},
+        "aiPlatform": {"type": "string"},
+        "licenseQuantity": {"type": "integer", "minimum": 1}
+      }
+    },
+    "requestedPath": {"enum": ["DISCOVERYPASS", "COREOS-V1-001", "VOLUME_LICENSING"]},
+    "workDescription": {"type": "string", "maxLength": 5000},
+    "frictionDescription": {"type": "string", "maxLength": 5000},
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dataProcessing", "truthfulSubmission"],
+      "properties": {
+        "dataProcessing": {"const": true},
+        "truthfulSubmission": {"const": true}
+      }
+    }
+  },
+  "responseStates": ["ELIGIBLE", "NOT_ELIGIBLE", "HUMAN_REVIEW_REQUIRED"]
+}

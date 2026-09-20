@@ -1,0 +1,66 @@
+generated: '2026-09-19'
+method: probed
+source: Live GET probes of the named /.well-known/* path list on genie-us-software.com and www.genie-us-software.com,
+  2026-09-19. Every row below is a request that was actually issued; every status is the one returned.
+summary:
+  hosts_probed: 2
+  paths_probed: 10
+  documents_served: 2
+  note: 'Two real documents are served, both on the www host: the A2A Agent Card and a provider-specific
+    commerce manifest (genie-commerce.json, schemaVersion 1.2.0) that maps the /machine/*.json discovery
+    surface. None of the documents the well_known_published check reads — api-catalog (RFC 9727),
+    security.txt (RFC 9116), oauth-protected-resource (RFC 9728), oauth-authorization-server (RFC 8414),
+    openid-configuration — is served, so NO WellKnown / SecurityTxt pointer is emitted in apis.yml; the
+    agent card is credited through its own AgentCard pointer. The apex host answers 301 to www for every
+    path. Unknown /.well-known/* paths return a real 404 (9,379-byte HTML error page), so there is no
+    SPA catch-all false-positive risk on this host. No MCP host exists to probe (no MCP server).'
+hosts:
+- host: www.genie-us-software.com
+  role: Website, agent card and machine-commerce discovery host (the only serving host)
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: ../a2a/genie-us-software-com-agent-card.json
+    standard: A2A 1.0.0 AgentCard (graded flavored — see a2a/)
+  - path: /.well-known/genie-commerce.json
+    status: 200
+    content_type: application/json; charset=utf-8
+    file: genie-us-software-com-genie-commerce.json
+    standard: provider-specific (not an RFC well-known); names machineSurfaces for products, capabilities, evidence, qualificationSchema, health
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+- host: genie-us-software.com
+  role: Apex domain; 301s every path to www.genie-us-software.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 301
+    note: Location https://www.genie-us-software.com/.well-known/agent-card.json (200 there, recorded above)
+  - path: /.well-known/security.txt
+    status: 301
+  - path: /.well-known/openid-configuration
+    status: 301
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+  - path: /.well-known/oauth-protected-resource
+    status: 301
+  - path: /.well-known/api-catalog
+    status: 301
+  - path: /.well-known/ai-plugin.json
+    status: 301

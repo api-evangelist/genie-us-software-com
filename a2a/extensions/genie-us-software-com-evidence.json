@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "principle": "Capability claims stop where evidence stops.",
+  "publicEvidence": [
+    {
+      "type": "trust_surface",
+      "url": "/trust/",
+      "scope": "Public trust, governance, and operating claims"
+    },
+    {
+      "type": "how_it_works",
+      "url": "/how-it-works/",
+      "scope": "Public explanation of operating model and bounded access"
+    },
+    {
+      "type": "terms",
+      "url": "/terms/",
+      "scope": "Public commercial terms"
+    },
+    {
+      "type": "acceptable_use",
+      "url": "/acceptable-use/",
+      "scope": "Public acceptable-use requirements"
+    }
+  ],
+  "claimPolicy": {
+    "unsupportedClaims": "reject",
+    "privateImplementationDetails": "do_not_disclose",
+    "securityExceptions": "human_review_required",
+    "contractExceptions": "human_review_required"
+  }
+}

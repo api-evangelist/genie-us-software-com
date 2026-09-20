@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.1.0",
+  "merchant": "Genie-us Software, Inc.",
+  "capabilities": [
+    {
+      "id": "governed-ai-orientation",
+      "availableThrough": ["DISCOVERYPASS", "COREOS-V1-001"],
+      "description": "Governance-first skills and operating instructions for the AI an operator already uses, designed to improve context, continuity, control, and alignment with operator intent.",
+      "evidence": "/machine/evidence.json"
+    },
+    {
+      "id": "coreos-v1",
+      "availableThrough": ["COREOS-V1-001"],
+      "description": "CoreOS™ v1.0 is a governance-first operating system delivered as an installable digital artifact. It does not require a Genie-us hosted runtime.",
+      "evidence": "/machine/evidence.json"
+    },
+    {
+      "id": "volume-licensing",
+      "availableThrough": ["CONTACT"],
+      "description": "Organizations purchasing CoreOS™ for multiple people can contact Genie-us Software for volume licenses or volume pricing."
+    }
+  ],
+  "commercialBoundaries": {
+    "mayInventProducts": false,
+    "mayChangePrices": false,
+    "mayInventVolumeDiscounts": false,
+    "mayClaimHostedRuntimeRequired": false,
+    "mayExposeProtectedImplementationIP": false
+  }
+}

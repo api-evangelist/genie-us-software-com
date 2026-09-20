@@ -1,0 +1,79 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Genie-us Software, Inc.
+providerId: genie-us-software-com
+generated: '2026-09-19'
+created: '2026-09-19'
+modified: '2026-09-19'
+method: probed
+source: https://www.genie-us-software.com/machine/products.json
+sources:
+- https://www.genie-us-software.com/machine/products.json
+- https://www.genie-us-software.com/.well-known/genie-commerce.json
+- https://www.genie-us-software.com/coreos/
+- https://www.genie-us-software.com/discoverypass/
+- https://www.genie-us-software.com/terms/
+tags:
+- AI Governance
+- Software Licensing
+- Agent Skills
+description: 'Genie-us Software sells one product, not API access: CoreOS v1.0, an installable governance-first
+  skills package for the AI environment a buyer already uses (ChatGPT custom-GPT Markdown install package or
+  a Claude Code skills ZIP). Pricing is read from the provider''s machine-readable /machine/products.json
+  (schemaVersion 1.3.0) and cross-checked against the /coreos/, /discoverypass/ and /terms/ pages, which agree.
+  There is no usage-metered API tier, no quota and no overage; the machine-commerce discovery documents
+  themselves are free, anonymous GETs. The manifest declares discountPolicy: not_authorized and
+  productMutationPolicy: not_authorized — an agent may route a buyer but may not invent or change a price.'
+plan_count: 2
+currency: USD
+plans:
+- id: discoverypass
+  sku: DISCOVERYPASS
+  name: DiscoveryPass
+  type: free-trial
+  price: 0
+  currency: USD
+  billing: none
+  period: 7 days
+  checkoutType: guided_intake
+  entryPoint: https://www.genie-us-software.com/discoverypass/
+  agentRoutable: true
+  agentSellable: false
+  description: Free seven-day guided evaluation of CoreOS inside the buyer's current AI environment; a request is subject to review and creates no paid subscription or hosted account (Terms s.4). The upgrade to the paid license is presented during or at the end of the seven days.
+  included: []
+  overage: null
+  limits: []
+- id: coreos-v1
+  sku: COREOS-V1-001
+  name: CoreOS v1.0 License
+  type: one-time
+  price: 499
+  currency: USD
+  billing: one_time
+  period: perpetual (does not auto-renew — Terms s.9)
+  checkoutType: stripe_payment_link
+  entryPoint: https://www.genie-us-software.com/coreos/
+  agentRoutable: true
+  agentSellable: true
+  discountable: false
+  licenseScope: one_individual_person
+  productType: installable_skill_package
+  fulfillmentModel: digital_artifact_delivery
+  deliveryFormats:
+  - {format: markdown_install_package, target: ChatGPT custom GPT and supported instruction-based AI environments}
+  - {format: claude_code_skills_zip, target: Claude Code}
+  hostedServiceRequired: false
+  customerInstallationRequired: true
+  installationCheckIncluded: true
+  supportAvailable: true
+  description: One software license for one individual person, delivered as an installable CoreOS skills package plus installation instructions; no Genie-us hosted runtime or activation server.
+  included: []
+  overage: null
+  limits:
+  - {name: seats, limit: 1, note: one individual person per license}
+enterprise:
+  available: true
+  name: Volume licensing
+  price: contact
+  note: 'Organizations buying for multiple people contact Genie-us (contact/?topic=volume-licensing); capabilities.json lists volume-licensing as availableThrough CONTACT and the manifest forbids an agent from inventing volume discounts (mayInventVolumeDiscounts: false).'

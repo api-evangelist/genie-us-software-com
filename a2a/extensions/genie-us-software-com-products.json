@@ -1,0 +1,9 @@
+{
+  "schemaVersion":"1.3.0",
+  "currency":"USD",
+  "products":[
+    {"id":"discoverypass","sku":"DISCOVERYPASS","name":"DiscoveryPass™","status":"active","public":true,"price":0,"billing":"none","checkoutType":"guided_intake","entryPoint":"/discoverypass/","agentRoutable":true,"agentSellable":false},
+    {"id":"coreos_v1","sku":"COREOS-V1-001","name":"CoreOS™ v1.0","status":"active","public":true,"price":499,"billing":"one_time","checkoutType":"stripe_payment_link","entryPoint":"/coreos/","agentRoutable":true,"agentSellable":true,"productType":"installable_skill_package","fulfillmentModel":"digital_artifact_delivery","licenseScope":"one_individual_person","deliveryFormats":[{"format":"markdown_install_package","target":"ChatGPT custom GPT and supported instruction-based AI environments"},{"format":"claude_code_skills_zip","target":"Claude Code"}],"hostedServiceRequired":false,"customerInstallationRequired":true,"installationInstructionsRequired":true,"installationCheckIncluded":true,"supportAvailable":true,"volumeLicensingAvailable":true,"volumePricingContactRequired":true}
+  ],
+  "unknownSkuPolicy":"reject"
+}

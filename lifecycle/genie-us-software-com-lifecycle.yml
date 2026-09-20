@@ -1,0 +1,50 @@
+generated: '2026-09-19'
+method: searched
+source: https://www.genie-us-software.com/terms/
+sources:
+- https://www.genie-us-software.com/terms/
+- https://www.genie-us-software.com/support/
+- https://www.genie-us-software.com/machine/health.json
+- https://www.genie-us-software.com/.well-known/agent-card.json
+versioning:
+  scheme: in-document semantic version fields; no path or header versioning
+  current:
+    agent_card: 1.1.0
+    commerce_manifest: 1.2.0
+    products: 1.3.0
+    capabilities: 1.1.0
+    evidence: 1.0.0
+    health: 1.2.0
+  product_version: CoreOS v1.0 (the licensed skills package, not the API)
+  policy: none published
+deprecation:
+  policy: none published
+  sunset_headers: not observed
+  deprecated_operations: []
+  note: The surface has no operations to deprecate; nothing to grade, so no Deprecation pointer is emitted.
+status_page:
+  url: null
+  note: 'No status page. /machine/health.json is a static readiness document (status SOURCE_READY plus capability
+    flags), not an operational status page with incidents or uptime, so no StatusPage pointer is emitted.'
+sla:
+  published: false
+  note: 'Terms s.8 disclaim third-party AI platform service levels; no SLA of the provider''s own is stated.'
+support:
+  url: https://www.genie-us-software.com/support/
+  email: support@genie-us-software.com
+  channels: [web form (/support/ and /contact/), email]
+  scope: CoreOS purchase, artifact delivery, ChatGPT / Claude Code installation help, DiscoveryPass, product questions
+  period: none stated
+terms:
+  url: https://www.genie-us-software.com/terms/
+  effective: '2026-08-19'
+  last_updated: '2026-08-19'
+  license: 'CoreOS v1.0 is licensed, not sold; one individual person per license; one-time fee, does not auto-renew (s.5, s.9, s.14).'
+  changes: 'Changes will be published on this page with an updated date and any notice or consent required by law.'
+milestones:
+- date: '2026-03-25'
+  event: GitHub organization genie-us-software created (0 public repositories as of 2026-09-19)
+- date: '2026-08-19'
+  event: Terms and Conditions effective; agent listed on a2aregistry.org the same day
+- date: '2026-09-19'
+  event: Agent card v1.1.0 and health.json SOURCE_READY observed; dynamic qualification, agent checkout and artifact fulfillment all still flagged false

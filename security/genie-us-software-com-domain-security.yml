@@ -1,0 +1,15 @@
+generated: '2026-09-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: genie-us-software.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 13 20:01:20 2026 GMT
+  hsts: false
+domains:
+- domain: genie-us-software.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false

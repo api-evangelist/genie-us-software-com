@@ -1,0 +1,10 @@
+{
+  "schemaVersion":"1.2.0",
+  "merchant":{"name":"Genie-us Software, Inc.","website":"https://www.genie-us-software.com/"},
+  "authority":{"source":"/machine/products.json","unknownSkuPolicy":"reject","discountPolicy":"not_authorized","productMutationPolicy":"not_authorized","paymentDoesNotEqualInstallation":true},
+  "publicOffers":[
+    {"sku":"DISCOVERYPASS","name":"DiscoveryPass™","price":0,"currency":"USD","billing":"none","entryPoint":"/discoverypass/","agentSellable":false,"agentRoutable":true},
+    {"sku":"COREOS-V1-001","name":"CoreOS™ v1.0","price":499,"currency":"USD","billing":"one_time","entryPoint":"/coreos/","agentSellable":true,"discountable":false,"fulfillmentModel":"digital_artifact_delivery","deliveryFormats":["markdown_install_package","claude_code_skills_zip"],"customerInstallationRequired":true,"installationCheckIncluded":true,"runtimeActivationRequired":false}
+  ],
+  "machineSurfaces":{"agentCard":"/.well-known/agent-card.json","products":"/machine/products.json","capabilities":"/machine/capabilities.json","evidence":"/machine/evidence.json","qualificationSchema":"/machine/qualification-schema.json","health":"/machine/health.json"}
+}

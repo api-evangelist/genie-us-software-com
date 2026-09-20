@@ -1,0 +1,87 @@
+generated: '2026-09-19'
+method: searched
+probe: true
+source: https://www.genie-us-software.com/privacy/
+description: 'Horizontal regulatory signals harvested from what the provider actually publishes. Harvest only —
+  which regimes apply is decided by the Kin Score regime map, not here. Most signals are ABSENT, which is the
+  expected measurement for a one-product company at this stage; every absence below was probed. Two caveats
+  the reader needs: the Privacy Policy and Acceptable Use Policy both carry a banner reading "Draft for legal
+  review. Not final until approved by Genie-us Software counsel", with effective date, privacy contact and
+  mailing address all "Pending"; the Terms and Conditions are final (effective 2026-08-19).'
+signals:
+  data_subject_request:
+    url: https://www.genie-us-software.com/privacy/
+    section: '10. Your privacy rights — privacy rights request paragraph'
+    channel: support@genie-us-software.com
+    stated_sla: null
+    rights_named: [access, correction, deletion, portable copy, opt out of certain processing, withdraw consent, appeal a denied request]
+    jurisdictions_named: [California (CCPA), Delaware, Maryland]
+    status: published-in-draft-policy
+    confidence: low
+    evidence:
+    - source: https://www.genie-us-software.com/privacy/
+      http_status: 200
+      fetched: '2026-09-19'
+      quote: >-
+        "Depending on your location and the law that applies, you may have rights to access, correct, delete, or
+        obtain a portable copy of personal information; opt out of certain processing; withdraw consent; and appeal
+        a denied request. ... To submit a privacy rights request, email support@genie-us-software.com."
+    - source: https://www.genie-us-software.com/privacy/requests
+      http_status: 404
+      fetched: '2026-09-19'
+    note: >-
+      A published channel and an enumerated rights list, but no response period, and the policy that carries it is
+      self-labelled a draft pending counsel approval with "Privacy contact: Pending company approval". Recorded as
+      a signal with low confidence because the route is live on the site today; a reader should not treat it as a
+      finalised commitment until the draft banner comes down.
+probed_absent:
+- signal: subprocessors
+  urls: [https://www.genie-us-software.com/legal/subprocessors, https://www.genie-us-software.com/legal/dpa, https://www.genie-us-software.com/privacy/]
+  statuses: [404, 404, 200]
+  note: 'Privacy s.14 "Third-party services" names no vendor; products.json names Stripe as the checkout type (stripe_payment_link) but no dated subprocessor table exists.'
+- signal: accessibility_conformance
+  urls: [https://www.genie-us-software.com/accessibility, https://www.genie-us-software.com/accessibility/vpat]
+  statuses: [404, 404]
+- signal: global_privacy_control
+  urls: [https://www.genie-us-software.com/privacy/]
+  statuses: [200]
+  note: No statement about Sec-GPC / Global Privacy Control anywhere in the policy; not tested by sending a header (per rule).
+- signal: data_residency
+  urls: [https://www.genie-us-software.com/docs/data-residency, https://www.genie-us-software.com/privacy/]
+  statuses: [404, 200]
+  note: 'Privacy s.12 says geographic scope and transfer mechanism are "Pending counsel approval" and "Do not rely on this draft as a completed international-transfer notice."'
+- signal: ai_transparency
+  urls: [https://www.genie-us-software.com/ai/transparency, https://www.genie-us-software.com/trust/]
+  statuses: [404, 200]
+  note: '/trust/ is a one-paragraph claims-boundary page ("Capability claims stop where evidence stops"), not an AI transparency statement. Terms s.11 warns "AI-assisted outputs can be incomplete or incorrect" — a disclaimer, not a transparency report.'
+- signal: training_data_summary
+  urls: [https://www.genie-us-software.com/privacy/]
+  statuses: [200]
+  note: 'Privacy s.3: "We will not use submitted content for model training unless a separately approved policy and legally sufficient notice and choice are established." A no-training commitment about CUSTOMER data, not a summary of training data used; the product is authored skills/instructions, not a model.'
+- signal: age_assurance
+  urls: [https://www.genie-us-software.com/privacy/]
+  statuses: [200]
+  note: 'Privacy s.13: services "are not directed to children"; "final minimum-age and deletion process is Pending counsel approval." No age-assurance mechanism.'
+- signal: incident_notification
+  urls: [https://www.genie-us-software.com/privacy/, https://www.genie-us-software.com/.well-known/security.txt]
+  statuses: [200, 404]
+  note: Privacy s.9 is a generic safeguards paragraph; no breach-notification commitment or period.
+- signal: sbom
+  urls: [https://www.genie-us-software.com/security/sbom]
+  statuses: [404]
+  note: Never derived; search only.
+- signal: support_lifetime
+  urls: [https://www.genie-us-software.com/terms/, https://www.genie-us-software.com/support/]
+  statuses: [200, 200]
+  note: No support period stated for the CoreOS v1.0 license.
+- signal: transparency_report
+  urls: [https://www.genie-us-software.com/transparency]
+  statuses: [404]
+- signal: notice_and_action
+  urls: [https://www.genie-us-software.com/legal/report-content, https://www.genie-us-software.com/acceptable-use/]
+  statuses: [404, 200]
+  note: 'AUP s.7: enforcement, appeal and reporting procedures are "Pending counsel and company approval. Contact: Pending company approval."'
+- signal: exit_assistance
+  urls: [https://www.genie-us-software.com/terms/]
+  statuses: [200]
+  note: Not applicable to a downloaded skills package; no export/portability route needed or stated.

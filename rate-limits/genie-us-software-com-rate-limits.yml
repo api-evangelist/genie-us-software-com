@@ -1,0 +1,28 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Genie-us Software, Inc.
+providerId: genie-us-software-com
+generated: '2026-09-19'
+created: '2026-09-19'
+modified: '2026-09-19'
+method: searched
+source: https://www.genie-us-software.com/acceptable-use/
+sources:
+- https://www.genie-us-software.com/acceptable-use/
+- https://www.genie-us-software.com/terms/
+- https://www.genie-us-software.com/.well-known/genie-commerce.json
+- https://www.genie-us-software.com/machine/health.json
+tags:
+- Rate Limiting
+description: 'No rate limits are published. The provider''s only machine surface is a set of six static,
+  anonymous JSON discovery documents (agent card, commerce manifest, products, capabilities, evidence,
+  qualification schema, health); none of the six responses observed on 2026-09-19 carried an X-RateLimit-*,
+  RateLimit-* or Retry-After header, and no docs page states a request budget. The Acceptable Use Policy
+  (itself marked "Draft for legal review") forbids interfering with "rate limits" as a category but names
+  none. An honest zero: the surface is read-only and unmetered as published.'
+limit_count: 0
+headers: {}
+responseCodes: {}
+limits: []
+note: limits undocumented; recorded as an honest zero, not a guess.

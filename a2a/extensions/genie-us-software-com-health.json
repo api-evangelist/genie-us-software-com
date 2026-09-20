@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.2.0",
+  "surface": "machine-commerce",
+  "status": "SOURCE_READY",
+  "staticDiscovery": true,
+  "dynamicQualification": false,
+  "agentCheckout": false,
+  "digitalArtifactFulfillment": false,
+  "hostedServiceApplicable": false,
+  "installationReceiptTelemetry": false,
+  "missionControlTelemetry": false,
+  "note": "CoreOS™ v1.0 is an installable skills product, not hosted SaaS. After verified purchase, fulfillment means delivery of the appropriate install artifact plus installation instructions. Installation and the included Installation Check occur in the customer's chosen supported AI environment."
+}

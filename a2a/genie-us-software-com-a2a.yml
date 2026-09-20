@@ -1,0 +1,107 @@
+generated: '2026-09-19'
+method: probed
+source: https://www.genie-us-software.com/.well-known/agent-card.json
+description: 'A2A Agent Card observed at /.well-known/agent-card.json on www.genie-us-software.com
+  (the apex host genie-us-software.com 301s every path to www). Grade is measured against the A2A 1.0.0
+  AgentCard object: ''conformant'' passes every structural check, ''near-conformant'' is correctly shaped
+  but omits optional fields, ''flavored'' fails a hard check and is an agent card in spirit rather than
+  in schema. Provider-published by construction — served from the provider''s own host; nothing here is
+  derived or generated. The card describes itself as DISCOVERY-ONLY: its own interaction block states
+  that autonomous A2A messaging is not asserted until a governed interaction endpoint is deployed, and
+  the card url is the marketing homepage rather than a JSON-RPC endpoint.'
+discovery:
+  path: /.well-known/agent-card.json
+  canonical: true
+  host: www.genie-us-software.com
+  legacy_path_probed: /.well-known/agent.json
+  legacy_path_status: 404
+conformance:
+  spec: A2A 1.0.0
+  grade: flavored
+  protocol_version: null
+  preferred_transport: null
+  checks:
+    capabilities_is_object: true
+    protocol_version_present: false
+    skills_is_array: true
+    default_input_modes_present: true
+    default_output_modes_present: true
+  deviations:
+  - no-protocolVersion
+  - no-preferredTransport
+  - no-a2a-endpoint
+  - skills-missing-tags
+  - securitySchemes-empty
+  - nonstandard-top-level-keys
+  deviation_notes:
+    no-protocolVersion: A2A 1.0.0 requires protocolVersion; the card omits it (hard check failed, hence flavored).
+    no-a2a-endpoint: 'url is https://www.genie-us-software.com/ (the website). The card''s own interaction block reads status: discovery_only — "Autonomous A2A messaging is not asserted until a governed interaction endpoint is deployed and verified." a2aregistry.org''s health check independently records message/send answering 405 Method Not Allowed (task_conformance category 405, passed false, checked 2026-09-19).'
+    skills-missing-tags: Each of the three AgentSkill objects carries id, name and description but no tags[], which A2A 1.0.0 requires.
+    securitySchemes-empty: securitySchemes is {} and no security[] requirement is declared; nothing to authenticate against because there is no endpoint.
+    nonstandard-top-level-keys: commercialTruth, interaction and extensions are provider extensions outside the AgentCard schema; they carry the SKU/price and the links to the /machine/*.json discovery documents.
+card:
+  name: Genie-us Software Commercial Agent
+  description: Machine-readable commercial discovery for Discovery Pass and CoreOS v1.0.
+  url: https://www.genie-us-software.com/
+  version: 1.1.0
+  provider: Genie-us Software, Inc.
+  documentation_url: null
+  skills: 3
+  skill_ids: [commercial-discovery, discovery-pass-entry, coreos-purchase]
+  file: genie-us-software-com-agent-card.json
+extensions:
+  note: 'The card''s extensions block names five sibling discovery documents on the same host. Each was fetched
+    2026-09-19 and saved VERBATIM; nothing below is authored. The commerce manifest additionally names
+    /machine/health.json, fetched and saved the same way. The qualification schema is a JSON Schema
+    (draft 2020-12) and is registered under json-schema/ and wired as a JSONSchema property.'
+  documents:
+  - key: commercialManifest
+    url: https://www.genie-us-software.com/.well-known/genie-commerce.json
+    http_status: 200
+    content_type: application/json; charset=utf-8
+    file: ../well-known/genie-us-software-com-genie-commerce.json
+    schema_version: 1.2.0
+  - key: products
+    url: https://www.genie-us-software.com/machine/products.json
+    http_status: 200
+    content_type: application/json; charset=utf-8
+    file: extensions/genie-us-software-com-products.json
+    schema_version: 1.3.0
+  - key: capabilities
+    url: https://www.genie-us-software.com/machine/capabilities.json
+    http_status: 200
+    content_type: application/json; charset=utf-8
+    file: extensions/genie-us-software-com-capabilities.json
+    schema_version: 1.1.0
+  - key: evidence
+    url: https://www.genie-us-software.com/machine/evidence.json
+    http_status: 200
+    content_type: application/json; charset=utf-8
+    file: extensions/genie-us-software-com-evidence.json
+    schema_version: 1.0.0
+  - key: qualificationSchema
+    url: https://www.genie-us-software.com/machine/qualification-schema.json
+    http_status: 200
+    content_type: application/json; charset=utf-8
+    file: ../json-schema/genie-us-software-com-qualification-schema.json
+    schema_version: JSON Schema draft 2020-12
+  - key: health
+    url: https://www.genie-us-software.com/machine/health.json
+    http_status: 200
+    content_type: application/json; charset=utf-8
+    file: extensions/genie-us-software-com-health.json
+    schema_version: 1.2.0
+    observed_status: SOURCE_READY
+    observed_flags: {staticDiscovery: true, dynamicQualification: false, agentCheckout: false, digitalArtifactFulfillment: false}
+registry:
+  listed_on: https://a2aregistry.org/
+  registry_id: 04294a00-f01e-4247-ad4b-bcfb1ea0057d
+  registry_created_at: '2026-08-19'
+  registry_maintainer_note: 'Agent card is valid but the A2A endpoint returns 405 Method Not Allowed.'
+  note: The registry marks the agent healthy at 100% uptime because its health check fetches the card, not the endpoint; its separate task-conformance probe fails with 405.
+x-evidence:
+  fetched: '2026-09-19'
+  url: https://www.genie-us-software.com/.well-known/agent-card.json
+  http_status: 200
+  content_type: application/json; charset=utf-8
+  note: Verbatim body saved alongside this manifest (SHA-256 identical to the fetched bytes). No field inferred.
