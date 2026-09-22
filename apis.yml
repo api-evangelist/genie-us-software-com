@@ -36,6 +36,11 @@ apis:
   tags:
   - Machine Commerce
   - AI Agents
+  - Product
+  - Pricing
+  tags_raw:
+  - Machine Commerce
+  - AI Agents
   - Products
   - Pricing
   x-evidence:
