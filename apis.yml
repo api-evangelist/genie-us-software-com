@@ -1,5 +1,5 @@
 aid: genie-us-software-com
-name: Genie-us Software, Inc.
+name: Genie-us Software
 description: 'Genie-us Software, Inc. sells CoreOS v1.0, a governance-first set of custom skills, operating
   instructions and boundaries installed into the AI environment a person already uses (ChatGPT as a Markdown
   install package, Claude Code as a skills ZIP) — no hosted runtime, one $499 one-time license per person,
@@ -118,3 +118,4 @@ x-enrichment:
   status: enriched
   artifacts_added: 17
   pass: local-v3
+x-legal-name: Genie-us Software, Inc.
