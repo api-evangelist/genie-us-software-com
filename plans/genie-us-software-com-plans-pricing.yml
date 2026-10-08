@@ -77,3 +77,25 @@ enterprise:
   name: Volume licensing
   price: contact
   note: 'Organizations buying for multiple people contact Genie-us (contact/?topic=volume-licensing); capabilities.json lists volume-licensing as availableThrough CONTACT and the manifest forbids an agent from inventing volume discounts (mayInventVolumeDiscounts: false).'
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - one-time
+  units: []
+  plans:
+  - name: DiscoveryPass
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - other
+  - name: CoreOS v1.0 License
+    access: other
+    model: one-time
+    model_how: stated
+    units: []
+    periods:
+    - other
